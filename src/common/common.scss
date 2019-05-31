@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  background-color: #f8f6f6;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}

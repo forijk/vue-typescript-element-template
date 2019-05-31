@@ -1,0 +1,7 @@
+.eslintignore/*
+build/*
+node_module/*
+public/*
+babel.config.js
+.eslintrc.js
+vue.config.js
