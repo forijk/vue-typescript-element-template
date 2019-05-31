@@ -3,12 +3,11 @@
 ## 一款轻量级、简单易用、结构清晰的 Vue CLI3 + TypeScript + ElementUI 开发的企业级后台模板。
 
 - 使用方法
-
-> git clone https://github.com/forijk/Admin-TypeScript-Vue.git
-> 安装依赖: npm install
-> 本地运行: npm run serve
-> 代码Lint: npm run lint
-> 本地构建: npm run build
+  - git clone https://github.com/forijk/Admin-TypeScript-Vue.git
+  - 安装依赖: npm install
+  - 本地运行: npm run serve
+  - 代码Lint: npm run lint
+  - 本地构建: npm run build
 
 - 特点：
   - 多入口项目；也改成单入口，直接修改 vue.config.js 即可
