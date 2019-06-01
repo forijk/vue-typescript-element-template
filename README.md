@@ -21,6 +21,45 @@
   - 集成三级菜单、面包屑功能等功能
   - 已抽离公共组建 Layout、Header、Side、Breadcrumb 等组件，简单易用，便于扩展
 
+### 目录结构
+
+├── README.md
+├── babel.config.js
+├── dist
+├── package.json
+├── postcss.config.js
+├── public
+├── src
+│   ├── assets
+│   ├── common
+│   │   ├── Bus.ts
+│   │   └── common.scss
+│   ├── components
+│   │   ├── Breadcrumb.vue
+│   │   ├── Header.vue
+│   │   ├── Layout.vue
+│   │   └── Side.vue
+│   ├── pages
+│   │   ├── home
+│   │   │   ├── App.vue
+│   │   │   └── main.ts
+│   │   ├── index
+│   │   │   ├── App.vue
+│   │   │   ├── components
+│   │   │   ├── main.ts
+│   │   │   ├── router.ts
+│   │   │   ├── shims-tsx.d.ts
+│   │   │   ├── shims-vue.d.ts
+│   │   │   ├── store
+│   │   │   └── views
+│   │   │       ├── About.vue
+│   │   │       └── Dashboard.vue
+│   │   └── initialize.ts
+│   ├── plugins
+│   └── utils
+├── tsconfig.json
+└── vue.config.js
+
 ### 后续将持续更新。希望能够帮助到大家，有所收获，也希望大家多多提建议。
 
 ### 感谢 ~
