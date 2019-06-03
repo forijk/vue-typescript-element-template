@@ -8,7 +8,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   components: {},
 })
-export default class About extends Vue {
+export default class Home extends Vue {
   mounted() {
     this.$msg.success('aaaaa');
   }

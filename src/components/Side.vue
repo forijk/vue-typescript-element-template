@@ -63,12 +63,12 @@
       <el-submenu index="13">
         <template slot="title">
           <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
+          <span slot="title">导航菜单</span>
         </template>
         <el-menu-item
-          index="13-1"
+          index="myClient"
           class="inlineTitle"
-        >选项13-1</el-menu-item>
+        >我的Client</el-menu-item>
       </el-submenu>
 
       <div
@@ -96,26 +96,55 @@ export default class Home extends Vue {
     // 响应式显示当前菜单
     Bus.$on('changeCurrentPath', (content: string) => {
       if (this.currentPath !== content) {
-        this.initMenu = false;
-        this.currentPath = content;
-        this.$nextTick(() => {
-          this.initMenu = true;
-        });
+        this.refreshSide(content);
+        // 存储首页面包屑
+        this.localStorage('dashboard');
       }
     });
     this.initMenu = true;
+    // 刷新留在当前菜单
+    if (window.location.pathname.match('apimanage')) {
+      const path = window.location.pathname.split('/')[2];
+      this.refreshSide(path);
+      const localPath: string | null = window.localStorage.getItem('breadcrumb');
+      // 重置面包屑为刷新之前
+      this.$emit('changePath', path, (localPath as string).split(','));
+    }
+  }
+
+  // 刷新留在当前菜单
+  refreshSide(path: string) {
+    this.initMenu = false;
+    this.currentPath = path;
+    this.$nextTick(() => {
+      this.initMenu = true;
+    });
+    this.$router.push(path);
   }
 
   handleSelect(key: string, keyPath: []) {
     // 菜单激活回调: 更改面包屑路径
     this.$emit('changePath', key, keyPath);
     this.currentPath = key;
+    if (key === 'dashboard') {
+      this.localStorage('dashboard');
+    } else {
+      this.localStorage(keyPath.join(','));
+    }
   }
 
   handleOpen(key: string, keyPath: []) {
     // sub-menu 展开的回调: 改面包屑路径
     this.$emit('changePath', key, keyPath);
     this.currentPath = key;
+    if (key !== '首页') {
+      this.localStorage(keyPath.join(','));
+    }
+  }
+
+  localStorage(path: string) {
+    const storage = window.localStorage;
+    storage.setItem('breadcrumb', `首页,${path}`);
   }
 
   // 收缩展开侧边栏

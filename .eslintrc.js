@@ -16,7 +16,8 @@ module.exports = {
     'no-unused-vars': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
-    'import/no-unresolved': 'off'
+    'import/no-unresolved': 'off',
+    'class-methods-use-this': 'off'
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',
