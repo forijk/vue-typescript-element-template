@@ -2,6 +2,8 @@
 
 ## 一款轻量级、简单易用、结构清晰的 Vue CLI3 + TypeScript + ElementUI 开发的企业级后台模板。
 
+![这里写图片描述](./example.gif) 
+
 - 使用方法
   - git clone https://github.com/forijk/Admin-TypeScript-Vue.git
   - 安装依赖: npm install
