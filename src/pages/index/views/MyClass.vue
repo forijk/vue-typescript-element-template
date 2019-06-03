@@ -2,7 +2,7 @@
   <div class="MyClientContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
+        <h3>我的分类</h3>
       </el-col>
     </el-row>
     <el-row>
@@ -13,7 +13,7 @@
         <el-button
           type="primary"
           @click="handleJumpApply"
-        >Client 申请</el-button>
+        >创建分类</el-button>
       </el-col>
     </el-row>
     <el-card class="tableWrap">
@@ -27,19 +27,11 @@
           prop='id'
         ></el-table-column>
         <el-table-column
-          label="申请人"
-          prop="applyUserName"
+          label="分类名称"
+          prop="className"
         ></el-table-column>
         <el-table-column
-          label="业务线"
-          prop="channelName"
-        ></el-table-column>
-        <el-table-column
-          label="申请说明"
-          prop="applyInfo"
-        ></el-table-column>
-        <el-table-column
-          label="申请时间"
+          label="创建时间"
           width="180"
         >
           <template slot-scope="scope">
@@ -48,7 +40,7 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="申请状态"
+          label="状态"
           width="180"
         >
           <template>
@@ -70,9 +62,14 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
-              type="danger"
+              type="success"
               @click="handleEdit(scope.$index, scope.row)"
-            >撤销</el-button>
+            >上线 or 下线</el-button>
+            <el-button
+              size="mini"
+              type="danger"
+              @click="handleEditSource(scope.$index, scope.row)"
+            >编辑资源</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -102,25 +99,19 @@ export default class MyClient extends Vue {
     {
       id: 23131132,
       status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      className: '分类名称',
       ctime: '2016-05-02',
     },
     {
       id: 23131132,
       status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      className: '分类名称',
       ctime: '2016-05-02',
     },
     {
       id: 23131132,
       status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      className: '分类名称',
       ctime: '2016-05-02',
     }
   ]
@@ -137,7 +128,11 @@ export default class MyClient extends Vue {
     console.log(`当前页: ${val}`);
   }
   handleJumpApply() {
-    this.$router.push('/clientApply');
+    this.$router.push('/createClass');
+  }
+  handleEditSource(index: number, row: object) {
+    console.log(index, row);
+    this.$router.push('/editSource');
   }
 }
 </script>

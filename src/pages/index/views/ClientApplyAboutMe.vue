@@ -2,7 +2,7 @@
   <div class="MyClientContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
+        <h3>我的 Client 申请</h3>
       </el-col>
     </el-row>
     <el-row>
@@ -13,7 +13,7 @@
         <el-button
           type="primary"
           @click="handleJumpApply"
-        >Client 申请</el-button>
+        >申请资源</el-button>
       </el-col>
     </el-row>
     <el-card class="tableWrap">
@@ -25,10 +25,6 @@
         <el-table-column
           label="ID"
           prop='id'
-        ></el-table-column>
-        <el-table-column
-          label="申请人"
-          prop="applyUserName"
         ></el-table-column>
         <el-table-column
           label="业务线"
@@ -47,6 +43,14 @@
             <span style="margin-left: 10px">{{ scope.row.ctime }}</span>
           </template>
         </el-table-column>
+        <el-table-column
+          label="appKey"
+          prop="appKey"
+        ></el-table-column>
+        <el-table-column
+          label="appSecret"
+          prop="appSecret"
+        ></el-table-column>
         <el-table-column
           label="申请状态"
           width="180"
@@ -103,29 +107,31 @@ export default class MyClient extends Vue {
       id: 23131132,
       status: 0,
       applyInfo: '申请说明',
-      applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
+      appKey: 'appKey',
+      appSecret: 'appSecret'
     },
     {
       id: 23131132,
       status: 0,
       applyInfo: '申请说明',
-      applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
+      appKey: 'appKey',
+      appSecret: 'appSecret'
     },
     {
       id: 23131132,
       status: 0,
       applyInfo: '申请说明',
-      applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
+      appKey: 'appKey',
+      appSecret: 'appSecret'
     }
   ]
   mounted() {
-    this.$msg.success('aaaaa');
   }
   handleEdit(index: number, row: object) {
     console.log(index, row);
@@ -137,7 +143,7 @@ export default class MyClient extends Vue {
     console.log(`当前页: ${val}`);
   }
   handleJumpApply() {
-    this.$router.push('/clientApply');
+    this.$router.push('/serviceList');
   }
 }
 </script>

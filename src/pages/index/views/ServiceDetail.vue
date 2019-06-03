@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h1>Dashboard page!!!</h1>
+    <el-row>
+      <el-col :span="4">
+        <h3>服务详情</h3>
+      </el-col>
+    </el-row>
+    <el-card>
+
+    </el-card>
   </div>
 </template>
 

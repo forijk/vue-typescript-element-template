@@ -60,7 +60,7 @@
         >选项12-1</el-menu-item>
       </el-submenu>
 
-      <el-submenu index="13">
+      <el-submenu index="导航菜单">
         <template slot="title">
           <i class="el-icon-document"></i>
           <span slot="title">导航菜单</span>
@@ -69,6 +69,24 @@
           index="myClient"
           class="inlineTitle"
         >我的Client</el-menu-item>
+        <el-menu-item
+          index="serviceRegister"
+          class="inlineTitle"
+        >我的Service</el-menu-item>
+        <el-menu-item
+          index="myClass"
+          class="inlineTitle"
+        >我的分类</el-menu-item>
+      </el-submenu>
+      <el-submenu index="我的页面">
+        <template slot="title">
+          <i class="el-icon-document"></i>
+          <span slot="title">我的页面</span>
+        </template>
+        <el-menu-item
+          index="clientApplyAboutMe"
+          class="inlineTitle"
+        >我的Client申请</el-menu-item>
       </el-submenu>
 
       <div
@@ -83,16 +101,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Bus from '@/common/Bus';
 @Component({
-  components: {},
+  components: {}
 })
 export default class Home extends Vue {
   isCollapse: boolean = false
-
   currentPath: string = 'dashboard'
-
   initMenu: boolean = false
-
-  mounted() {
+  mounted () {
     // 响应式显示当前菜单
     Bus.$on('changeCurrentPath', (content: string) => {
       if (this.currentPath !== content) {
@@ -111,7 +126,6 @@ export default class Home extends Vue {
       this.$emit('changePath', path, (localPath as string).split(','));
     }
   }
-
   // 刷新留在当前菜单
   refreshSide(path: string) {
     this.initMenu = false;
@@ -121,10 +135,9 @@ export default class Home extends Vue {
     });
     this.$router.push(path);
   }
-
   handleSelect(key: string, keyPath: []) {
     // 菜单激活回调: 更改面包屑路径
-    this.$emit('changePath', key, keyPath);
+    this.$emit("changePath", key, keyPath);
     this.currentPath = key;
     if (key === 'dashboard') {
       this.localStorage('dashboard');
@@ -132,21 +145,18 @@ export default class Home extends Vue {
       this.localStorage(keyPath.join(','));
     }
   }
-
   handleOpen(key: string, keyPath: []) {
     // sub-menu 展开的回调: 改面包屑路径
-    this.$emit('changePath', key, keyPath);
+    this.$emit("changePath", key, keyPath);
     this.currentPath = key;
     if (key !== '首页') {
       this.localStorage(keyPath.join(','));
     }
   }
-
   localStorage(path: string) {
-    const storage = window.localStorage;
-    storage.setItem('breadcrumb', `首页,${path}`);
+    let storage=window.localStorage;
+    storage.setItem("breadcrumb", '首页,' + path);
   }
-
   // 收缩展开侧边栏
   handleCollapse() {
     this.isCollapse = !this.isCollapse;

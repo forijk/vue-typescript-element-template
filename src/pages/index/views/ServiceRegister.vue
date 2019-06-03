@@ -1,8 +1,8 @@
 <template>
-  <div class="MyClientContent">
+  <div class="serviceRegisterContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
+        <h3>我的 Service</h3>
       </el-col>
     </el-row>
     <el-row>
@@ -13,7 +13,7 @@
         <el-button
           type="primary"
           @click="handleJumpApply"
-        >Client 申请</el-button>
+        >Service 申请</el-button>
       </el-col>
     </el-row>
     <el-card class="tableWrap">
@@ -33,6 +33,10 @@
         <el-table-column
           label="业务线"
           prop="channelName"
+        ></el-table-column>
+        <el-table-column
+          label="服务名称"
+          prop="serviceName"
         ></el-table-column>
         <el-table-column
           label="申请说明"
@@ -70,6 +74,10 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
+              type="primary"
+            >查看资源</el-button>
+            <el-button
+              size="mini"
               type="danger"
               @click="handleEdit(scope.$index, scope.row)"
             >撤销</el-button>
@@ -94,7 +102,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
   components: {}
 })
-export default class MyClient extends Vue {
+export default class ServiceRegister extends Vue {
   currentPage: number = 1
   total: number = 100
   pageSize: number = 20
@@ -102,6 +110,7 @@ export default class MyClient extends Vue {
     {
       id: 23131132,
       status: 0,
+      serviceName: '服务名称',
       applyInfo: '申请说明',
       applyUserName: 'Tom',
       channelName: '业务线',
@@ -110,6 +119,7 @@ export default class MyClient extends Vue {
     {
       id: 23131132,
       status: 0,
+      serviceName: '服务名称',
       applyInfo: '申请说明',
       applyUserName: 'Tom',
       channelName: '业务线',
@@ -118,6 +128,7 @@ export default class MyClient extends Vue {
     {
       id: 23131132,
       status: 0,
+      serviceName: '服务名称',
       applyInfo: '申请说明',
       applyUserName: 'Tom',
       channelName: '业务线',
@@ -137,12 +148,12 @@ export default class MyClient extends Vue {
     console.log(`当前页: ${val}`);
   }
   handleJumpApply() {
-    this.$router.push('/clientApply');
+    this.$router.push('/serviceApply');
   }
 }
 </script>
 <style lang="scss" scoped>
-.MyClientContent {
+.serviceRegisterContent {
   margin-top: 20px;
   .tableWrap {
     margin-top: 20px;
