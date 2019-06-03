@@ -23,6 +23,7 @@
 
 ### 目录结构
 
+```javascript
 ├── README.md
 ├── babel.config.js
 ├── dist
@@ -59,6 +60,7 @@
 │   └── utils
 ├── tsconfig.json
 └── vue.config.js
+```
 
 ### 后续将持续更新。希望能够帮助到大家，有所收获，也希望大家多多提建议。
 
