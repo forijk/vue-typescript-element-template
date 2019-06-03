@@ -17,7 +17,9 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
-    'class-methods-use-this': 'off'
+    'class-methods-use-this': 'off',
+    'consistent-return': 'off',
+    'max-len': 'off'
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

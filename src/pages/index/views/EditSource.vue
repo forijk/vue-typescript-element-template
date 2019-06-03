@@ -53,29 +53,31 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Form as ElForm } from 'element-ui';
 @Component({
-  components: {}
+  components: {},
 })
 export default class ClientApply extends Vue {
   ruleForm: object = {
-          resourcesName: '',
-          funcName: '',
-          className: '',
-          resourcesUri: ''
-        }
+    resourcesName: '',
+    funcName: '',
+    className: '',
+    resourcesUri: '',
+  }
+
   rules: object = {
     resourcesName: [
-      { required: true, message: '请输入资源名称', trigger: 'blur' }
+      { required: true, message: '请输入资源名称', trigger: 'blur' },
     ],
     funcName: [
-      { required: true, message: '请输入函数名称', trigger: 'blur' }
+      { required: true, message: '请输入函数名称', trigger: 'blur' },
     ],
     className: [
-      { required: true, message: '请输入资源类名', trigger: 'blur' }
+      { required: true, message: '请输入资源类名', trigger: 'blur' },
     ],
     resourcesUri: [
-      { required: true, message: '请输入资源uri地址', trigger: 'blur' }
-    ]
+      { required: true, message: '请输入资源uri地址', trigger: 'blur' },
+    ],
   }
+
   submitForm(formName: string) {
     const ref = (this.$refs[formName] as ElForm);
     ref.validate((valid: boolean) => {
@@ -86,6 +88,7 @@ export default class ClientApply extends Vue {
       }
     });
   }
+
   resetForm(formName: string) {
     const ref = (this.$refs[formName] as ElForm);
     ref.resetFields();

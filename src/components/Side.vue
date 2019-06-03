@@ -101,13 +101,16 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Bus from '@/common/Bus';
 @Component({
-  components: {}
+  components: {},
 })
 export default class Home extends Vue {
   isCollapse: boolean = false
+
   currentPath: string = 'dashboard'
+
   initMenu: boolean = false
-  mounted () {
+
+  mounted() {
     // 响应式显示当前菜单
     Bus.$on('changeCurrentPath', (content: string) => {
       if (this.currentPath !== content) {
@@ -126,6 +129,7 @@ export default class Home extends Vue {
       this.$emit('changePath', path, (localPath as string).split(','));
     }
   }
+
   // 刷新留在当前菜单
   refreshSide(path: string) {
     this.initMenu = false;
@@ -135,9 +139,10 @@ export default class Home extends Vue {
     });
     this.$router.push(path);
   }
+
   handleSelect(key: string, keyPath: []) {
     // 菜单激活回调: 更改面包屑路径
-    this.$emit("changePath", key, keyPath);
+    this.$emit('changePath', key, keyPath);
     this.currentPath = key;
     if (key === 'dashboard') {
       this.localStorage('dashboard');
@@ -145,18 +150,21 @@ export default class Home extends Vue {
       this.localStorage(keyPath.join(','));
     }
   }
+
   handleOpen(key: string, keyPath: []) {
     // sub-menu 展开的回调: 改面包屑路径
-    this.$emit("changePath", key, keyPath);
+    this.$emit('changePath', key, keyPath);
     this.currentPath = key;
     if (key !== '首页') {
       this.localStorage(keyPath.join(','));
     }
   }
+
   localStorage(path: string) {
-    let storage=window.localStorage;
-    storage.setItem("breadcrumb", '首页,' + path);
+    const storage = window.localStorage;
+    storage.setItem('breadcrumb', `首页,${path}`);
   }
+
   // 收缩展开侧边栏
   handleCollapse() {
     this.isCollapse = !this.isCollapse;

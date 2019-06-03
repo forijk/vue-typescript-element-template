@@ -92,12 +92,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
-  components: {}
+  components: {},
 })
 export default class MyClient extends Vue {
   currentPage: number = 1
+
   total: number = 100
+
   pageSize: number = 20
+
   tableData = [
     {
       id: 23131132,
@@ -122,20 +125,25 @@ export default class MyClient extends Vue {
       applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
-    }
+    },
   ]
+
   mounted() {
     this.$msg.success('aaaaa');
   }
+
   handleEdit(index: number, row: object) {
     console.log(index, row);
   }
+
   handleSizeChange(val: number) {
     console.log(`每页 ${val} 条`);
   }
+
   handleCurrentChange(val: number) {
     console.log(`当前页: ${val}`);
   }
+
   handleJumpApply() {
     this.$router.push('/clientApply');
   }

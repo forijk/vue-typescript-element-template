@@ -38,17 +38,19 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Form as ElForm } from 'element-ui';
 @Component({
-  components: {}
+  components: {},
 })
 export default class ClientApply extends Vue {
   ruleForm: object = {
-          className: ''
-        }
+    className: '',
+  }
+
   rules: object = {
     className: [
-      { required: true, message: '请输入分类名称', trigger: 'blur' }
-    ]
+      { required: true, message: '请输入分类名称', trigger: 'blur' },
+    ],
   }
+
   submitForm(formName: string) {
     const ref = (this.$refs[formName] as ElForm);
     ref.validate((valid: boolean) => {
@@ -59,6 +61,7 @@ export default class ClientApply extends Vue {
       }
     });
   }
+
   resetForm(formName: string) {
     const ref = (this.$refs[formName] as ElForm);
     ref.resetFields();
