@@ -1,4 +1,4 @@
-# Admin-TypeScript-Vue
+# Vue-typescript-element-template
 
 ## 一款轻量级、简单易用、结构清晰的 Vue CLI3 + TypeScript + ElementUI 开发的企业级后台模板。
 
