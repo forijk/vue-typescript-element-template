@@ -53,7 +53,6 @@
 │   │   │   ├── shims-vue.d.ts
 │   │   │   ├── store
 │   │   │   └── views
-│   │   │       ├── About.vue
 │   │   │       └── Dashboard.vue
 │   │   └── initialize.ts
 │   ├── plugins
