@@ -4,8 +4,11 @@
 
 ![这里写图片描述](./example.gif) 
 
+- 增加 axios 插件的封装，防抖、节流、请求缓存等。
+- 增加一些示例页面
+
 - 使用方法
-  - git clone https://github.com/forijk/Admin-TypeScript-Vue.git
+  - git clone https://github.com/forijk/vue-typescript-element-template.git
   - 安装依赖: npm install
   - 本地运行: npm run serve
   - 代码Lint: npm run lint
@@ -25,44 +28,56 @@
 
 ### 目录结构
 
-```javascript
-├── README.md
+```shell
 ├── babel.config.js
-├── dist
 ├── package.json
 ├── postcss.config.js
 ├── public
+│   ├── favicon.ico
+│   └── index.html
 ├── src
 │   ├── assets
+│   │   ├── logo.png
+│   │   └── page404.png
 │   ├── common
 │   │   ├── Bus.ts
-│   │   └── common.scss
+│   │   ├── axios.ts
+│   │   ├── axiosExtensions.ts
+│   │   ├── common.scss
+│   │   └── interpators.ts
 │   ├── components
 │   │   ├── Breadcrumb.vue
 │   │   ├── Header.vue
 │   │   ├── Layout.vue
 │   │   └── Side.vue
+│   ├── global.d.ts
 │   ├── pages
 │   │   ├── home
 │   │   │   ├── App.vue
 │   │   │   └── main.ts
 │   │   ├── index
 │   │   │   ├── App.vue
-│   │   │   ├── components
 │   │   │   ├── main.ts
 │   │   │   ├── router.ts
-│   │   │   ├── shims-tsx.d.ts
-│   │   │   ├── shims-vue.d.ts
+│   │   │   ├── service
+│   │   │   │   ├── apiMap.ts
+│   │   │   │   └── apimanage.serve.ts
 │   │   │   ├── store
+│   │   │   │   ├── actions.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── mutation-types.ts
+│   │   │   │   └── state.ts
 │   │   │   └── views
-│   │   │       └── Dashboard.vue
 │   │   └── initialize.ts
 │   ├── plugins
+│   │   ├── inject.ts
+│   │   ├── notify.ts
+│   │   └── vue.d.ts
 │   └── utils
 ├── tsconfig.json
 └── vue.config.js
 ```
 
-### 后续将持续更新。希望能够帮助到大家，有所收获，也希望大家多多提建议。
+### 后续将持续更新。希望能够帮助到大家，有所收获，也希望大家多多提些建议。
 
 ### 感谢 ~
