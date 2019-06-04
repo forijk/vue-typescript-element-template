@@ -1,7 +1,7 @@
 <template>
   <el-header>
     <div class="header_left">
-      <h1><a href="/index/">Admin-TypeScript-Vue 企业级后台模板</a></h1>
+      <h1><a href="/index/">Vue-typescript-element-template 企业级后台模板</a></h1>
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
