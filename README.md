@@ -2,10 +2,14 @@
 
 ## 一款轻量级、简单易用、结构清晰的 Vue CLI3 + TypeScript + ElementUI 开发的企业级后台模板。
 
-![这里写图片描述](./example.gif) 
+![这里写图片描述](./example.gif)
+
+### 近期更新
 
 - 增加 axios 插件的封装，防抖、节流、请求缓存等。
 - 增加一些示例页面
+
+### 使用方法及特点
 
 - 使用方法
   - git clone https://github.com/forijk/vue-typescript-element-template.git
