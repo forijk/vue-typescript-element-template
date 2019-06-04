@@ -32,7 +32,8 @@
         </div>
       </el-row>
       <div class="submit">
-        <el-button type="primary">提交申请</el-button>
+        <el-button type="primary">通过</el-button>
+        <el-button type="primary">拒绝</el-button>
       </div>
     </el-card>
   </div>

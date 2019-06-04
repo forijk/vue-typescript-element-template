@@ -75,6 +75,7 @@
             <el-button
               size="mini"
               type="primary"
+              @click="handleJumpDetail"
             >查看资源</el-button>
             <el-button
               size="mini"
@@ -157,6 +158,10 @@ export default class ServiceRegister extends Vue {
 
   handleJumpApply() {
     this.$router.push('/serviceApply');
+  }
+
+  handleJumpDetail() {
+    this.$router.push('/clientResourceAuditDetail');
   }
 }
 </script>

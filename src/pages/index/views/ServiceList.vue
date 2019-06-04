@@ -2,7 +2,7 @@
   <div class="MyClientContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
+        <h3>Service 列表</h3>
       </el-col>
     </el-row>
     <!-- <el-row>
@@ -31,7 +31,10 @@
           prop="serviceName"
         >
           <template slot-scope="scope">
-            <el-button type="text" @click="handleJumpApply(scope.$index, scope.row)">{{ scope.row.serviceName }}</el-button>
+            <el-button
+              type="text"
+              @click="handleJumpApply(scope.$index, scope.row)"
+            >{{ scope.row.serviceName }}</el-button>
           </template>
         </el-table-column>
       </el-table>

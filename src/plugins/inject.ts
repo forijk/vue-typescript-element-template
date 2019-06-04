@@ -1,6 +1,6 @@
 import { isEmptyObject } from '@/utils';
 // base 里都是基础模块，每个项目都要用到的模块，比如顶导航/左导航
-const baseModules = require.context('@/components', false, /\.vue$/);
+const baseModules = (require as any).context('@/components', false, /\.vue$/);
 
 interface Options {
   components: string[];

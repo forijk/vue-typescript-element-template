@@ -2,18 +2,7 @@
   <div class="MyClientContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col
-        :offset="20"
-        :span="4"
-      >
-        <el-button
-          type="primary"
-          @click="handleJumpApply"
-        >Client 申请</el-button>
+        <h3>Client 资源审核</h3>
       </el-col>
     </el-row>
     <el-card class="tableWrap">
@@ -27,17 +16,16 @@
           prop='id'
         ></el-table-column>
         <el-table-column
-          label="申请人"
-          prop="applyUserName"
-        ></el-table-column>
-        <el-table-column
-          label="业务线"
-          prop="channelName"
-        ></el-table-column>
-        <el-table-column
-          label="申请说明"
-          prop="applyInfo"
-        ></el-table-column>
+          label="服务名称"
+          prop="serviceName"
+        >
+          <template slot-scope="scope">
+            <el-button
+              type="text"
+              @click="handleJumpApply(scope.$index, scope.row)"
+            >{{ scope.row.serviceName }}</el-button>
+          </template>
+        </el-table-column>
         <el-table-column
           label="申请时间"
           width="180"
@@ -48,31 +36,28 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="申请状态"
+          label="状态"
           width="180"
         >
           <template>
             <el-tag
               size="medium"
-              type="info"
-            >待审核</el-tag>
-            <el-tag
-              size="medium"
               type="success"
-            >通过</el-tag>
-            <el-tag
-              size="medium"
-              type="danger"
-            >拒绝</el-tag>
+            >状态</el-tag>
           </template>
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button
               size="mini"
+              type="success"
+              @click="handleEdit(scope.$index, scope.row)"
+            >通过</el-button>
+            <el-button
+              size="mini"
               type="danger"
               @click="handleEdit(scope.$index, scope.row)"
-            >撤销</el-button>
+            >删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -91,7 +76,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { getClientApplyList } from '@/pages/index/service/apimanage.serve';
 @Component({
   components: {},
 })
@@ -105,33 +89,26 @@ export default class MyClient extends Vue {
   tableData = [
     {
       id: 23131132,
-      status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      serviceName: '服务名称',
       ctime: '2016-05-02',
+      status: 0,
     },
     {
       id: 23131132,
-      status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      serviceName: '服务名称',
       ctime: '2016-05-02',
+      status: 0,
     },
     {
       id: 23131132,
-      status: 0,
-      applyInfo: '申请说明',
-      applyUserName: 'Tom',
-      channelName: '业务线',
+      serviceName: '服务名称',
       ctime: '2016-05-02',
+      status: 0,
     },
   ]
 
   mounted() {
     this.$msg.success('aaaaa');
-    getClientApplyList();
   }
 
   handleEdit(index: number, row: object) {
@@ -147,7 +124,7 @@ export default class MyClient extends Vue {
   }
 
   handleJumpApply() {
-    this.$router.push('/clientApply');
+    this.$router.push('/clientResourceAuditDetail');
   }
 }
 </script>

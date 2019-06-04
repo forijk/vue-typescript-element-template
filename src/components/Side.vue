@@ -87,6 +87,22 @@
           index="clientApplyAboutMe"
           class="inlineTitle"
         >我的Client申请</el-menu-item>
+        <el-menu-item
+          index="myService"
+          class="inlineTitle"
+        >我的服务</el-menu-item>
+        <el-menu-item
+          index="clientApplyAudit"
+          class="inlineTitle"
+        >Client 申请审核</el-menu-item>
+        <el-menu-item
+          index="serviceApplyAudit"
+          class="inlineTitle"
+        >Service 申请审核</el-menu-item>
+        <el-menu-item
+          index="clientResourceAudit"
+          class="inlineTitle"
+        >Client 资源审核</el-menu-item>
       </el-submenu>
 
       <div
@@ -126,7 +142,9 @@ export default class Home extends Vue {
       this.refreshSide(path);
       const localPath: string | null = window.localStorage.getItem('breadcrumb');
       // 重置面包屑为刷新之前
-      this.$emit('changePath', path, (localPath as string).split(','));
+      if (localPath) {
+        this.$emit('changePath', path, (localPath as string).split(','));
+      }
     }
   }
 

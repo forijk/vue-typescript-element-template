@@ -2,18 +2,7 @@
   <div class="MyClientContent">
     <el-row>
       <el-col :span="4">
-        <h3>我的 Client</h3>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col
-        :offset="20"
-        :span="4"
-      >
-        <el-button
-          type="primary"
-          @click="handleJumpApply"
-        >Client 申请</el-button>
+        <h3>Service 申请审核</h3>
       </el-col>
     </el-row>
     <el-card class="tableWrap">
@@ -29,6 +18,10 @@
         <el-table-column
           label="申请人"
           prop="applyUserName"
+        ></el-table-column>
+        <el-table-column
+          label="服务名称"
+          prop="serviceName"
         ></el-table-column>
         <el-table-column
           label="业务线"
@@ -47,32 +40,18 @@
             <span style="margin-left: 10px">{{ scope.row.ctime }}</span>
           </template>
         </el-table-column>
-        <el-table-column
-          label="申请状态"
-          width="180"
-        >
-          <template>
-            <el-tag
-              size="medium"
-              type="info"
-            >待审核</el-tag>
-            <el-tag
-              size="medium"
-              type="success"
-            >通过</el-tag>
-            <el-tag
-              size="medium"
-              type="danger"
-            >拒绝</el-tag>
-          </template>
-        </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button
               size="mini"
+              type="success"
+              @click="handleEdit(scope.$index, scope.row)"
+            >通过</el-button>
+            <el-button
+              size="mini"
               type="danger"
               @click="handleEdit(scope.$index, scope.row)"
-            >撤销</el-button>
+            >删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -91,7 +70,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { getClientApplyList } from '@/pages/index/service/apimanage.serve';
 @Component({
   components: {},
 })
@@ -105,24 +83,24 @@ export default class MyClient extends Vue {
   tableData = [
     {
       id: 23131132,
-      status: 0,
       applyInfo: '申请说明',
+      serviceName: '服务名称',
       applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
     },
     {
       id: 23131132,
-      status: 0,
       applyInfo: '申请说明',
+      serviceName: '服务名称',
       applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
     },
     {
       id: 23131132,
-      status: 0,
       applyInfo: '申请说明',
+      serviceName: '服务名称',
       applyUserName: 'Tom',
       channelName: '业务线',
       ctime: '2016-05-02',
@@ -131,7 +109,6 @@ export default class MyClient extends Vue {
 
   mounted() {
     this.$msg.success('aaaaa');
-    getClientApplyList();
   }
 
   handleEdit(index: number, row: object) {

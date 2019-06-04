@@ -19,7 +19,10 @@ module.exports = {
     'import/no-unresolved': 'off',
     'class-methods-use-this': 'off',
     'consistent-return': 'off',
-    'max-len': 'off'
+    'max-len': 'off',
+    'no-underscore-dangle': 'off',
+    'no-prototype-builtins': 'off',
+    'no-use-before-define': 'off'
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

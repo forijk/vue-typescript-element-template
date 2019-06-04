@@ -10,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: () => import(/* webpackChunkName: "indexPage" */ './views/Dashboard.vue'),
+      component: () => import(/* webpackChunkName: "homeIndex" */ './views/Dashboard.vue'),
     },
     {
       path: '/dashboard',
@@ -66,6 +66,31 @@ export default new Router({
       path: '/serviceDetail',
       name: 'serviceDetail',
       component: () => import(/* webpackChunkName: "serviceDetail" */ './views/ServiceDetail.vue'),
+    },
+    {
+      path: '/myService',
+      name: 'myService',
+      component: () => import(/* webpackChunkName: "myService" */ './views/MyService.vue'),
+    },
+    {
+      path: '/clientApplyAudit',
+      name: 'clientApplyAudit',
+      component: () => import(/* webpackChunkName: "clientApplyAudit" */ './views/ClientApplyAudit.vue'),
+    },
+    {
+      path: '/serviceApplyAudit',
+      name: 'serviceApplyAudit',
+      component: () => import(/* webpackChunkName: "serviceApplyAudit" */ './views/ServiceApplyAudit.vue'),
+    },
+    {
+      path: '/clientResourceAudit',
+      name: 'clientResourceAudit',
+      component: () => import(/* webpackChunkName: "clientResourceAudit" */ './views/ClientResourceAudit.vue'),
+    },
+    {
+      path: '/clientResourceAuditDetail',
+      name: 'clientResourceAuditDetail',
+      component: () => import(/* webpackChunkName: "clientResourceAuditDetail" */ './views/ClientResourceAuditDetail.vue'),
     },
   ],
 });
